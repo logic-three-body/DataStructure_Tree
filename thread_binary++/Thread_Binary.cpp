@@ -37,11 +37,25 @@ Status Thread_Binary::CreateBiThrTree(TBNode **T)
 
 void Thread_Binary::createInThread()
 {
-	TBNode*p = BiTree_root;
-	TBNode*pre = BiTree_root;//前驱节点指针
-	InThread(p, pre);
-	pre->rchild = BiTree_root;//非空二叉树线索化
-	pre->RTag = Thread;//处理中序最后一个节点
+	TBNode *TreeHead = new TBNode;
+	TreeHead->LTag = Link;
+	TreeHead->RTag = Thread;
+	TreeHead->rchild = TreeHead;
+	if (!BiTree_root)/* 若二叉树空,则左指针回指 */
+	{
+		TreeHead->lchild = TreeHead;
+	}
+	else
+	{
+		TreeHead->lchild = BiTree_root;
+		TBNode*p = BiTree_root;
+		TBNode*pre = TreeHead;//前驱节点指针
+		InThread(p, pre);
+		pre->rchild = TreeHead;//非空二叉树线索化
+		pre->RTag = Thread;//处理中序最后一个节点
+		TreeHead->rchild = pre;
+	}
+	BiTree_root = TreeHead;
 }
 
 void Thread_Binary::InThread(TBNode *p, TBNode *&pre)//*&pre,代表直接作用在pre的地址，表明pre不是每次都变的指针变量
@@ -94,7 +108,7 @@ TBNode * Thread_Binary::Next(TBNode *p)
 
 }
 
-void Thread_Binary::Inorder()
+void Thread_Binary::InorderShow()
 {
 	for (TBNode *p = First(BiTree_root); p != nullptr; p = Next(p))
 	{
@@ -108,7 +122,7 @@ void Thread_Binary::Inorder()
 Status Thread_Binary::InOrderTraverse_Thr()
 {
 	TBNode* p;
-	p = BiTree_root; /* p指向根结点 */
+	p = BiTree_root->lchild; /* p指向根结点 */
 	while (p != BiTree_root)
 	{ /* 空树或遍历结束时,p==T */
 		while (p->LTag == Link)

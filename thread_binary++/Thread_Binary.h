@@ -29,13 +29,18 @@ public:
 	void createInThread();
 	// 通过中序遍历对二叉树线索化的递归算法：
 	void InThread(TBNode *, TBNode *&);
-	//求以p为根的中序线索二叉树中，中序序列下的第一个节点。
-	TBNode *First(TBNode*);
-	//求在中序线索二叉树中，节点p在中序下的后继节点。
-	TBNode *Next(TBNode*);
-	//中序线索二叉树上执行中序遍历的算法
-	void Inorder();
 	/* 中序遍历二叉线索树T(头结点)的非递归算法 */
 	Status InOrderTraverse_Thr();
+
+
+ /*https://zhuanlan.zhihu.com/p/134184036*/	
+	  //求以p为根的中序线索二叉树中，中序序列下的第一个节点。
+	TBNode *First(TBNode*);//存疑
+	//求在中序线索二叉树中，节点p在中序下的后继节点。
+	TBNode *Next(TBNode*);//存疑
+	//中序线索二叉树上执行中序遍历的算法
+	void InorderShow();//存疑
+
+
 };
 
