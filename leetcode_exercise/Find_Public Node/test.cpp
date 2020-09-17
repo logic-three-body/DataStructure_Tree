@@ -63,7 +63,7 @@ public:
 	}
 	//按前序输入二叉树中结点的值
 	/* #表示空树，构造二叉链表表示二叉树T。 */
-	void createBinary(TreeNode**T) {
+	void createBinary(TreeNode**T) {//T=&Binary_Tree *T=Binary_Tree,二级指针可以作用于BinaryTree头指针本身而一级指针和BinaryTREE同级，无法作用于BinaryTree指针
 		ElemType elem;
 		//std::cin>>elem;
 		elem = NodeArray[index++];
