@@ -21,6 +21,7 @@ Help:https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485561&idx=1&sn=a
 /* 用于构造二叉树********************************** */
 int index = 0;
 constexpr int NodeArray[] = { 3,5, 6, Nil, Nil, 2, 7, Nil, Nil, 4 ,Nil, Nil, 1, 0, Nil, Nil, 8, Nil, Nil };
+constexpr int NodeArray2[] = {0};
 typedef struct TreeNode {
 	int val;
 	TreeNode *left;
@@ -62,24 +63,24 @@ public:
 	}
 	//按前序输入二叉树中结点的值
 	/* #表示空树，构造二叉链表表示二叉树T。 */
-	void createBinary(TreeNode*T) {
+	void createBinary(TreeNode**T) {
 		ElemType elem;
 		//std::cin>>elem;
 		elem = NodeArray[index++];
 
 		if (Nil==elem)
 		{
-			T = nullptr;
+			*T = nullptr;
 		}
 		else
 		{
-			T = new TreeNode(elem);
-			if (!T)
+			*T = new TreeNode(elem);
+			if (!*T)
 			{
 				exit(OVERFLOW);
 			}
-			createBinary(T->left);/* 构造左子树 */
-			createBinary(T->right);/* 构造右子树 */
+			createBinary(&(*T)->left);/* 构造左子树 */
+			createBinary(&(*T)->right);/* 构造右子树 */
 		}
 	}
 };
@@ -113,7 +114,7 @@ int main()
 	Result=test.lowestCommonAncestor(Binary_Tree,&Node2,&Node3);
 
 	TreeNode*binary_tree2=nullptr;
-	test.createBinary(binary_tree2);
+	test.createBinary(&binary_tree2);
 	
 	system("pause");
 }
