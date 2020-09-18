@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "thread_binary++", "thread_b
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Find_Public Node", "leetcode_exercise\Find_Public Node\Find_Public Node.vcxproj", "{FFA4F3A6-BBB5-4B1D-940D-81EA4C4C70FE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flat Tree to List", "Flat Tree to List\Flat Tree to List.vcxproj", "{BBC3761D-8B6A-4645-8DD1-3065F736A910}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{FFA4F3A6-BBB5-4B1D-940D-81EA4C4C70FE}.Release|x64.Build.0 = Release|x64
 		{FFA4F3A6-BBB5-4B1D-940D-81EA4C4C70FE}.Release|x86.ActiveCfg = Release|Win32
 		{FFA4F3A6-BBB5-4B1D-940D-81EA4C4C70FE}.Release|x86.Build.0 = Release|Win32
+		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Debug|x64.ActiveCfg = Debug|x64
+		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Debug|x64.Build.0 = Debug|x64
+		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Debug|x86.ActiveCfg = Debug|Win32
+		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Debug|x86.Build.0 = Debug|Win32
+		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Release|x64.ActiveCfg = Release|x64
+		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Release|x64.Build.0 = Release|x64
+		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Release|x86.ActiveCfg = Release|Win32
+		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

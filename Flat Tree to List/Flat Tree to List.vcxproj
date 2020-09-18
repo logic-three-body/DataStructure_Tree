@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{FFA4F3A6-BBB5-4B1D-940D-81EA4C4C70FE}</ProjectGuid>
-    <RootNamespace>FindPublicNode</RootNamespace>
+    <ProjectGuid>{BBC3761D-8B6A-4645-8DD1-3065F736A910}</ProjectGuid>
+    <RootNamespace>FlatTreetoList</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,7 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Findtest.cpp" />
+    <ClCompile Include="Flattest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
