@@ -47,8 +47,8 @@ public:
 		if (root == nullptr) return nullptr;
 		if (root == p || root == q) return root;
 
-		TreeNode *left = lowestCommonAncestor(root->left, p, q);//在root左侧寻找目标 若返回NULL说明未找到
-		TreeNode *right = lowestCommonAncestor(root->right, p, q);//在root右侧寻找目标 若返回NULL说明未找到
+		TreeNode *left = lowestCommonAncestor(root->left, p, q);//在root左侧寻找目标
+		TreeNode *right = lowestCommonAncestor(root->right, p, q);//在root右侧寻找目标
 
 		//相当于后序
 
@@ -65,7 +65,7 @@ public:
 		相当于最短距离，p已经满足离此root最近的条件，无论q离root多远都无所谓
 		*/
 
-		return left == nullptr ? right : left;//左右节点谁不为空返回谁  遍历左/右节点后如果在一侧未找到则说明q/p肯定在另一侧（排除法）
+		return left == nullptr ? right : left;//左右节点谁不为空返回谁
 	
 	}
 	//按前序输入二叉树中结点的值
