@@ -2,12 +2,10 @@
 #include<iostream>
 #include<cstring>
 #include<string>
-#include <cstdlib>
-#include <iomanip>
 using namespace std;
 #define MAXSIZE 500
-int FrencyTank[26]; //频率 
-char LetterTank[26];//存字母 
+int Frequency[26]; //频率 
+char letterTank[26];//存字母 
 char temp[MAXSIZE];//暂存被译码串 
 
 typedef struct htnode
@@ -16,15 +14,15 @@ typedef struct htnode
 	int lchild, rchild, parent;
 	char data;
 	int frequency;//出现频率 
-}*Huffman_tree;
+}*huffman_tree;
 
-typedef char **Huffman_code;
+typedef char **huffman_code;
 
-void select(Huffman_tree &hf, int x, int &s1, int &s2)//在叶子结点里找最小的两个 
+void select(huffman_tree &hf, int num, int &s1, int &s2)//在叶子结点里找最小的两个 
 {
 	int min = 999, cmin = 999;//最小值和次小值 
 	int i = 1;
-	while (i <= x)
+	while (i <= num)
 	{
 		if (hf[i].parent == 0)
 		{
@@ -40,7 +38,7 @@ void select(Huffman_tree &hf, int x, int &s1, int &s2)//在叶子结点里找最
 	}
 	int flag = s1;
 	i = 1;
-	while (i <= x)
+	while (i <= num)
 	{
 		if (hf[i].parent == 0)
 		{
@@ -57,7 +55,7 @@ void select(Huffman_tree &hf, int x, int &s1, int &s2)//在叶子结点里找最
 
 }
 
-void CreateHuffmanTree(Huffman_tree &hf, int n)//叶子为n的Huffman树有2n-1个结点 
+void Create(huffman_tree &hf, int n)//叶子为n的哈树有2n-1个结点 
 {
 	int m = 2 * n - 1, s1 = 0, s2 = 0;
 
@@ -70,11 +68,11 @@ void CreateHuffmanTree(Huffman_tree &hf, int n)//叶子为n的Huffman树有2n-1�
 		hf[i].parent = 0;
 		hf[i].rchild = 0;
 		hf[i].lchild = 0;
-		hf[i].data = LetterTank[i - 1];//字母
+		hf[i].data = letterTank[i - 1];//字母
 	}
 
 	for (int i = 1; i <= n; i++)
-		hf[i].weight = FrencyTank[i - 1];//输入权值 
+		hf[i].weight = Frequency[i - 1];//输入权值 
 
 	for (int i = n + 1; i <= m; i++)//前n个为叶子，后面需要构建 
 	{
@@ -89,7 +87,17 @@ void CreateHuffmanTree(Huffman_tree &hf, int n)//叶子为n的Huffman树有2n-1�
 
 }
 
-void count(string& str, Huffman_tree &hf, int &times)//出现频率 ,字母个数 
+
+void PrintState(huffman_tree &hf, int x)
+{
+	for (int i = 1; i <= 2 * x - 1; i++)
+	{
+		cout << i << " ";
+		cout << hf[i].weight << " " << hf[i].parent << " " << hf[i].lchild << " " << hf[i].rchild << endl;
+	}
+}
+
+void count(char str[], huffman_tree &hf, int &n)//出现频率 ,字母个数 
 {
 	int i = 0, j = 0;
 	int num[26];
@@ -107,24 +115,24 @@ void count(string& str, Huffman_tree &hf, int &times)//出现频率 ,字母个�
 	{
 		if (num[i] != 0)
 		{
-			LetterTank[j] = char(i + 97);
-			FrencyTank[j] = num[i];
+			letterTank[j] = char(i + 97);
+			Frequency[j] = num[i];
 			j++;
 		}
 	}
-	times = j;
-	for (int i = 0; i < times; i++)
+	n = j;
+	for (int i = 0; i < n; i++)
 	{
-		if (i == times - 1)
-			cout << LetterTank[i] << ":" << FrencyTank[i];
+		if (i == n - 1)
+			cout << letterTank[i] << ":" << Frequency[i];
 		else
-			cout << LetterTank[i] << ":" << FrencyTank[i] << " ";
+			cout << letterTank[i] << ":" << Frequency[i] << " ";
 	}
 	cout << endl;
 }
 
 
-void HuffmanCode(Huffman_tree &hf, Huffman_code &hc, int n)
+void HuffmanCode(huffman_tree &hf, huffman_code &hc, int n)
 {
 	int start = 0, c, f;
 	char *cd;
@@ -159,21 +167,21 @@ void HuffmanCode(Huffman_tree &hf, Huffman_code &hc, int n)
 	int i, j, z = 0;
 	for (j = 1; j <= n; j++)//输出字母编码 
 	{
-		cout << LetterTank[j - 1] << ":" << hc[j] << " ";
-		//if (j == n)
-		//	cout << LetterTank[j - 1] << ":" << hc[j];
-		//else
-		//	cout << LetterTank[j - 1] << ":" << hc[j] << " ";
+		if (j == n)
+			cout << letterTank[j - 1] << ":" << hc[j];
+		else
+			cout << letterTank[j - 1] << ":" << hc[j] << " ";
 	}
 	cout << endl;
+
 }
 
 
-void letter_to_code(Huffman_tree &hf, Huffman_code &hc, int n, string& str)
+void letter_to_code(huffman_tree &hf, huffman_code &hc, int n, char str[])
 {
 	for (int i = 0; str[i] != '\0'; i++)
 		for (int j = 1; j <= n; j++)
-			if (str[i] == LetterTank[j - 1])
+			if (str[i] == letterTank[j - 1])
 			{
 				cout << hc[j];
 				strcat(temp, hc[j]);
@@ -183,7 +191,7 @@ void letter_to_code(Huffman_tree &hf, Huffman_code &hc, int n, string& str)
 
 }
 
-void code_to_letter(Huffman_tree &hf, Huffman_code &hc, int n)
+void code_to_letter(huffman_tree &hf, huffman_code &hc, int n)
 {
 	int i = 2 * n - 1;
 	int j = 0;
@@ -204,64 +212,35 @@ void code_to_letter(Huffman_tree &hf, Huffman_code &hc, int n)
 	cout << endl;
 }
 
-//打印HT
-void PrintState(Huffman_tree& HT, int n)
-{
-	int m = 2 * n - 1;  //总结点数
-	
-	for (int i = 1; i <= m; i++)
-	{
-		cout << i << " ";
-		cout << HT[i].weight << " ";
-		cout << HT[i].parent << " ";
-		cout << HT[i].lchild << " ";
-		cout << HT[i].rchild << " " << endl;
-	}
-}
-
 int main()
 {
 
-	while (true)
+	while (1)
 	{
-		Huffman_tree huffman_tree;
-		Huffman_code huffman_code;
-		int frequency;
-		string str = "";
+		huffman_tree hf;
+		huffman_code hc;
+		int n;
+		char str[MAXSIZE];
 
-		
-		getline(cin, str);
+		//gets_s(str);
+		scanf("%s", str);
 		
 		if (str[0] == '0')
 			break;
 
-		//统计频率
-		count(str, huffman_tree, frequency);
+		count(str, hf, n);
+		Create(hf, n);
+		PrintState(hf, n);
+		HuffmanCode(hf, hc, n);
+		letter_to_code(hf, hc, n, str);
+		code_to_letter(hf, hc, n);
 
-
-
-		//创造HuffmanTree
-		CreateHuffmanTree(huffman_tree, frequency);
-
-		//TODO输出HuffmanTree
-		PrintState(huffman_tree, frequency);
-
-
-		//输出编码格式
-		HuffmanCode(huffman_tree, huffman_code, frequency);
-
-		//打印编码
-		letter_to_code(huffman_tree, huffman_code, frequency, str);
-
-		//打印字符
-		code_to_letter(huffman_tree, huffman_code, frequency);
-
-		memset(FrencyTank, 0, sizeof(FrencyTank));
-		memset(LetterTank, '\0', sizeof(LetterTank));
+		memset(Frequency, 0, sizeof(Frequency));
+		memset(letterTank, '\0', sizeof(letterTank));
 		memset(temp, '\0', sizeof(temp));
 
-		delete huffman_tree;
-		delete huffman_code;
+		delete hf;
+		delete hc;
 	}
 	return 0;
 }

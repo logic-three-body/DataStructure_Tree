@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flat Tree to List", "Flat T
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman", "Huffman\Huffman.vcxproj", "{5B8464DD-FA7C-4D72-B585-F5A385E1861A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HuffmanWeb", "HuffmanWeb\HuffmanWeb.vcxproj", "{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Release|x64.Build.0 = Release|x64
 		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Release|x86.ActiveCfg = Release|Win32
 		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Release|x86.Build.0 = Release|Win32
+		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Debug|x64.ActiveCfg = Debug|x64
+		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Debug|x64.Build.0 = Debug|x64
+		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Debug|x86.ActiveCfg = Debug|Win32
+		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Debug|x86.Build.0 = Debug|Win32
+		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Release|x64.ActiveCfg = Release|x64
+		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Release|x64.Build.0 = Release|x64
+		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Release|x86.ActiveCfg = Release|Win32
+		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
