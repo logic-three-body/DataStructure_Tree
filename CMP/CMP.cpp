@@ -177,19 +177,20 @@ int CMP_TREE(const BiTree& T1,const BiTree& T2)//if Equal
 }
 int main()
 {
-	int Terminal = OK;
-	while (Terminal)
+	
+	while (true)
 	{
 		BiTree BTree1, BTree2;
-		BiTree BTree3, BTree4;
 		InitBiTree(&BTree1);
 		InitBiTree(&BTree2);
-		InitBiTree(&BTree3);
-		InitBiTree(&BTree4);
+
 		CreateBiTree(&BTree1);
+		if (!BTree1)//仅输入0
+		{
+			break;
+		}
 		CreateBiTree(&BTree2);
-		CreateBiTree(&BTree3);
-		CreateBiTree(&BTree4);
+
 
 		//PreOrderTraverse(BTree1);
 		//std::cout << std::endl;
@@ -206,16 +207,8 @@ int main()
 			std::cout << "NO" << std::endl;
 		}
 
-		if (CMP_TREE(BTree3, BTree4))
-		{
-			std::cout << "YES" << std::endl;
-		}
-		else
-		{
-			std::cout << "NO" << std::endl;
-		}
 
-		std::cin >> Terminal;//Is END
+		
 	}
 
 	return 0;
