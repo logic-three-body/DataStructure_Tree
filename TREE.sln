@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Find_Public Node", "leetcod
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flat Tree to List", "Flat Tree to List\Flat Tree to List.vcxproj", "{BBC3761D-8B6A-4645-8DD1-3065F736A910}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman", "Huffman\Huffman.vcxproj", "{5B8464DD-FA7C-4D72-B585-F5A385E1861A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Release|x64.Build.0 = Release|x64
 		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Release|x86.ActiveCfg = Release|Win32
 		{BBC3761D-8B6A-4645-8DD1-3065F736A910}.Release|x86.Build.0 = Release|Win32
+		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Debug|x64.ActiveCfg = Debug|x64
+		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Debug|x64.Build.0 = Debug|x64
+		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Debug|x86.ActiveCfg = Debug|Win32
+		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Debug|x86.Build.0 = Debug|Win32
+		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Release|x64.ActiveCfg = Release|x64
+		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Release|x64.Build.0 = Release|x64
+		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Release|x86.ActiveCfg = Release|Win32
+		{5B8464DD-FA7C-4D72-B585-F5A385E1861A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
