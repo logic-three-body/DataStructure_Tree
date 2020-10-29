@@ -1,10 +1,13 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS //put in first line
 #include<iostream>
 #include<cstring>
+#include<string>
+#include <cstdlib>
+#include <iomanip>
 using namespace std;
 #define MAX 500
-int coun[26]; //频率 
-char saveletter[26];//存字母 
+int FrencyTank[26]; //频率 
+char LetterTank[26];//存字母 
 char temp[MAX];//暂存被译码串 
 
 typedef struct htnode
@@ -13,11 +16,11 @@ typedef struct htnode
 	int lchild, rchild, parent;
 	char data;
 	int frequency;//出现频率 
-}*huftree;
+}*Huffman_tree;
 
-typedef char **hufcode;
+typedef char **Huffman_code;
 
-void select(huftree &hf, int x, int &s1, int &s2)//在叶子结点里找最小的两个 
+void select(Huffman_tree &hf, int x, int &s1, int &s2)//在叶子结点里找最小的两个 
 {
 	int min = 999, cmin = 999;//最小值和次小值 
 	int i = 1;
@@ -54,7 +57,7 @@ void select(huftree &hf, int x, int &s1, int &s2)//在叶子结点里找最小�
 
 }
 
-void Create(huftree &hf, int n)//叶子为n的哈树有2n-1个结点 
+void CreateHuffmanTree(Huffman_tree &hf, int n)//叶子为n的Huffman树有2n-1个结点 
 {
 	int m = 2 * n - 1, s1 = 0, s2 = 0;
 
@@ -67,11 +70,11 @@ void Create(huftree &hf, int n)//叶子为n的哈树有2n-1个结点
 		hf[i].parent = 0;
 		hf[i].rchild = 0;
 		hf[i].lchild = 0;
-		hf[i].data = saveletter[i - 1];//字母
+		hf[i].data = LetterTank[i - 1];//字母
 	}
 
 	for (int i = 1; i <= n; i++)
-		hf[i].weight = coun[i - 1];//输入权值 
+		hf[i].weight = FrencyTank[i - 1];//输入权值 
 
 	for (int i = n + 1; i <= m; i++)//前n个为叶子，后面需要构建 
 	{
@@ -86,7 +89,7 @@ void Create(huftree &hf, int n)//叶子为n的哈树有2n-1个结点
 
 }
 
-void count(char str[], huftree &hf, int &n)//出现频率 ,字母个数 
+void count(string& str, Huffman_tree &hf, int &times)//出现频率 ,字母个数 
 {
 	int i = 0, j = 0;
 	int num[26];
@@ -104,24 +107,24 @@ void count(char str[], huftree &hf, int &n)//出现频率 ,字母个数
 	{
 		if (num[i] != 0)
 		{
-			saveletter[j] = char(i + 97);
-			coun[j] = num[i];
+			LetterTank[j] = char(i + 97);
+			FrencyTank[j] = num[i];
 			j++;
 		}
 	}
-	n = j;
-	for (int i = 0; i < n; i++)
+	times = j;
+	for (int i = 0; i < times; i++)
 	{
-		if (i == n - 1)
-			cout << saveletter[i] << ":" << coun[i];
+		if (i == times - 1)
+			cout << LetterTank[i] << ":" << FrencyTank[i];
 		else
-			cout << saveletter[i] << ":" << coun[i] << " ";
+			cout << LetterTank[i] << ":" << FrencyTank[i] << " ";
 	}
 	cout << endl;
 }
 
 
-void hfcode(huftree &hf, hufcode &hc, int n)
+void HuffmanCode(Huffman_tree &hf, Huffman_code &hc, int n)
 {
 	int start = 0, c, f;
 	char *cd;
@@ -157,20 +160,19 @@ void hfcode(huftree &hf, hufcode &hc, int n)
 	for (j = 1; j <= n; j++)//输出字母编码 
 	{
 		if (j == n)
-			cout << saveletter[j - 1] << ":" << hc[j];
+			cout << LetterTank[j - 1] << ":" << hc[j];
 		else
-			cout << saveletter[j - 1] << ":" << hc[j] << " ";
+			cout << LetterTank[j - 1] << ":" << hc[j] << " ";
 	}
 	cout << endl;
-
 }
 
 
-void trans_tonum(huftree &hf, hufcode &hc, int n, char str[])
+void letter_to_code(Huffman_tree &hf, Huffman_code &hc, int n, string& str)
 {
 	for (int i = 0; str[i] != '\0'; i++)
 		for (int j = 1; j <= n; j++)
-			if (str[i] == saveletter[j - 1])
+			if (str[i] == LetterTank[j - 1])
 			{
 				cout << hc[j];
 				strcat(temp, hc[j]);
@@ -180,7 +182,7 @@ void trans_tonum(huftree &hf, hufcode &hc, int n, char str[])
 
 }
 
-void trans_toletter(huftree &hf, hufcode &hc, int n)
+void code_to_letter(Huffman_tree &hf, Huffman_code &hc, int n)
 {
 	int i = 2 * n - 1;
 	int j = 0;
@@ -201,32 +203,64 @@ void trans_toletter(huftree &hf, hufcode &hc, int n)
 	cout << endl;
 }
 
+//打印HT
+void PrintState(Huffman_tree& HT, int n)
+{
+	int m = 2 * n - 1;  //总结点数
+	
+	for (int i = 1; i <= m; i++)
+	{
+		cout << i << " ";
+		cout << HT[i].weight << " ";
+		cout << HT[i].parent << " ";
+		cout << HT[i].lchild << " ";
+		cout << HT[i].rchild << " " << endl;
+	}
+}
+
 int main()
 {
 
-	while (1)
+	while (true)
 	{
-		huftree hf;
-		hufcode hc;
-		int n;
-		char str[MAX];
+		Huffman_tree huffman_tree;
+		Huffman_code huffman_code;
+		int frequency;
+		string str = "";
 
-		gets_s(str);
+		
+		getline(cin, str);
+		
 		if (str[0] == '0')
 			break;
 
-		count(str, hf, n);
-		Create(hf, n);
-		hfcode(hf, hc, n);
-		trans_tonum(hf, hc, n, str);
-		trans_toletter(hf, hc, n);
+		//统计频率
+		count(str, huffman_tree, frequency);
 
-		memset(coun, 0, sizeof(coun));
-		memset(saveletter, '\0', sizeof(saveletter));
+
+
+		//创造HuffmanTree
+		CreateHuffmanTree(huffman_tree, frequency);
+
+		//TODO输出HuffmanTree
+		PrintState(huffman_tree, frequency);
+
+
+		//输出编码格式
+		HuffmanCode(huffman_tree, huffman_code, frequency);
+
+		//打印编码
+		letter_to_code(huffman_tree, huffman_code, frequency, str);
+
+		//打印字符
+		code_to_letter(huffman_tree, huffman_code, frequency);
+
+		memset(FrencyTank, 0, sizeof(FrencyTank));
+		memset(LetterTank, '\0', sizeof(LetterTank));
 		memset(temp, '\0', sizeof(temp));
 
-		delete hf;
-		delete hc;
+		delete huffman_tree;
+		delete huffman_code;
 	}
 	return 0;
 }
