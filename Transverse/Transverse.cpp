@@ -124,7 +124,7 @@ void Assign(BiTree p, TElemType value)
 
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 前序递归遍历T */
-void PreOrderTraverse(BiTree T)
+void PreOrderTraverse(const BiTree& T)
 {
 	if (T == NULL)
 		return;
@@ -135,7 +135,7 @@ void PreOrderTraverse(BiTree T)
 
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 中序递归遍历T */
-void InOrderTraverse(BiTree T)
+void InOrderTraverse(const BiTree& T)
 {
 	if (T == NULL)
 		return;
@@ -146,7 +146,7 @@ void InOrderTraverse(BiTree T)
 
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 后序递归遍历T */
-void PostOrderTraverse(BiTree T)
+void PostOrderTraverse(const BiTree& T)
 {
 	if (T == NULL)
 		return;
@@ -187,7 +187,12 @@ int main()
 		{
 			break;
 		}
-		std::cout << BiTreeDepth(BTree1) << std::endl;
+		PreOrderTraverse(BTree1);
+		std::cout << std::endl;	
+		InOrderTraverse(BTree1);
+		std::cout << std::endl;
+		PostOrderTraverse(BTree1);
+		std::cout << std::endl;
 
 	}
 
