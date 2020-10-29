@@ -219,7 +219,7 @@ int main()
 	{
 		huffman_tree hf;
 		huffman_code hc;
-		int n;
+		int freqency;
 		char str[MAXSIZE];
 
 		//gets_s(str);
@@ -228,12 +228,12 @@ int main()
 		if (str[0] == '0')
 			break;
 
-		count(str, hf, n);
-		Create(hf, n);
-		PrintState(hf, n);
-		HuffmanCode(hf, hc, n);
-		letter_to_code(hf, hc, n, str);
-		code_to_letter(hf, hc, n);
+		count(str, hf, freqency);
+		Create(hf, freqency);
+		PrintState(hf, freqency);
+		HuffmanCode(hf, hc, freqency);
+		letter_to_code(hf, hc, freqency, str);
+		code_to_letter(hf, hc, freqency);
 
 		memset(Frequency, 0, sizeof(Frequency));
 		memset(letterTank, '\0', sizeof(letterTank));

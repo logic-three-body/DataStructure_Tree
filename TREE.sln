@@ -15,9 +15,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Find_Public Node", "leetcod
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flat Tree to List", "Flat Tree to List\Flat Tree to List.vcxproj", "{BBC3761D-8B6A-4645-8DD1-3065F736A910}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman", "Huffman\Huffman.vcxproj", "{5B8464DD-FA7C-4D72-B585-F5A385E1861A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman_String", "Huffman\Huffman.vcxproj", "{5B8464DD-FA7C-4D72-B585-F5A385E1861A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HuffmanWeb", "HuffmanWeb\HuffmanWeb.vcxproj", "{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman_CharArray", "HuffmanWeb\HuffmanWeb.vcxproj", "{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CMP", "CMP\CMP.vcxproj", "{8EA1DD9E-93A2-4610-978A-9587415BE1AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,14 @@ Global
 		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Release|x64.Build.0 = Release|x64
 		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Release|x86.ActiveCfg = Release|Win32
 		{4D30F2D5-67F1-4072-8B9C-7649B07EBB28}.Release|x86.Build.0 = Release|Win32
+		{8EA1DD9E-93A2-4610-978A-9587415BE1AD}.Debug|x64.ActiveCfg = Debug|x64
+		{8EA1DD9E-93A2-4610-978A-9587415BE1AD}.Debug|x64.Build.0 = Debug|x64
+		{8EA1DD9E-93A2-4610-978A-9587415BE1AD}.Debug|x86.ActiveCfg = Debug|Win32
+		{8EA1DD9E-93A2-4610-978A-9587415BE1AD}.Debug|x86.Build.0 = Debug|Win32
+		{8EA1DD9E-93A2-4610-978A-9587415BE1AD}.Release|x64.ActiveCfg = Release|x64
+		{8EA1DD9E-93A2-4610-978A-9587415BE1AD}.Release|x64.Build.0 = Release|x64
+		{8EA1DD9E-93A2-4610-978A-9587415BE1AD}.Release|x86.ActiveCfg = Release|Win32
+		{8EA1DD9E-93A2-4610-978A-9587415BE1AD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
