@@ -57,7 +57,7 @@ void CreateBiTree(BiTree *T)
 {
 	TElemType ch;
 
-	
+
 	std::cin >> ch;
 
 	if (ch == Nil)
@@ -124,7 +124,7 @@ void Assign(BiTree p, TElemType value)
 
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 前序递归遍历T */
-void PreOrderTraverse(BiTree T)
+void PreOrderTraverse(const BiTree& T)
 {
 	if (T == NULL)
 		return;
@@ -135,7 +135,7 @@ void PreOrderTraverse(BiTree T)
 
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 中序递归遍历T */
-void InOrderTraverse(BiTree T)
+void InOrderTraverse(const BiTree& T)
 {
 	if (T == NULL)
 		return;
@@ -146,7 +146,7 @@ void InOrderTraverse(BiTree T)
 
 /* 初始条件: 二叉树T存在 */
 /* 操作结果: 后序递归遍历T */
-void PostOrderTraverse(BiTree T)
+void PostOrderTraverse(const BiTree& T)
 {
 	if (T == NULL)
 		return;
@@ -155,7 +155,7 @@ void PostOrderTraverse(BiTree T)
 	printf("%c", T->data);/* 显示结点数据，可以更改为其它对结点操作 */
 }
 
-Status CMP_TREE(const BiTree& T1,const BiTree& T2)//if Equal
+Status CMP_TREE(const BiTree& T1, const BiTree& T2)//if Equal
 {
 	if (!T1 && !T2)//Equal if both are NULL
 	{
@@ -165,50 +165,49 @@ Status CMP_TREE(const BiTree& T1,const BiTree& T2)//if Equal
 	{
 		return ERROR;
 	}
-	if (T1->data!=T2->data)
+	if (T1->data != T2->data)
 	{
 		return ERROR;
 	}
 	int left = 0;//Jud left subTree
-	int right= 0;//Jud right subTree
+	int right = 0;//Jud right subTree
 	left = CMP_TREE(T1->lchild, T2->lchild);
 	right = CMP_TREE(T1->rchild, T2->rchild);
 	return right && left;
 }
+
+void ChangeLR(BiTree&T)//交换左右子树
+{
+	BiTree Temp = nullptr;
+	if (!T->lchild||!T->rchild)//左右子树某一个为空
+	{
+		return;
+	}
+	else
+	{
+		Temp = T->lchild;
+		T->lchild = T->rchild;
+		T->rchild = Temp;
+	}
+	ChangeLR(T->lchild);
+	ChangeLR(T->rchild);
+}
+
 int main()
 {
-	
+
 	while (true)
 	{
-		BiTree BTree1, BTree2;
+		BiTree BTree1;
 		InitBiTree(&BTree1);
-		InitBiTree(&BTree2);
-
 		CreateBiTree(&BTree1);
 		if (!BTree1)//仅输入0
 		{
 			break;
 		}
-		CreateBiTree(&BTree2);
-
-
-		//PreOrderTraverse(BTree1);
-		//std::cout << std::endl;
-		//PreOrderTraverse(BTree2);
-
-
-		//Judment
-		if (CMP_TREE(BTree1,BTree2))
-		{
-			std::cout << "YES" << std::endl;
-		}
-		else
-		{
-			std::cout << "NO" << std::endl;
-		}
-
-
-		
+		ChangeLR(BTree1);
+		PreOrderTraverse(BTree1);	
+		std::cout << std::endl;
 	}
 
 	return 0;
