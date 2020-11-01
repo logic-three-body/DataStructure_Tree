@@ -315,8 +315,15 @@ Status Longest_Path(const BiTree&T)
 		}
 
 	}
+	std::cout << longest << std::endl;
 
-	return longest;
+	for (int i = 1; i <=longest; i++)
+	{
+		
+		std::cout <<LongPathStack[i]->data;
+	}
+	std::cout << std::endl;
+	return OK;
 }
 
 int main()
@@ -331,7 +338,7 @@ int main()
 		{
 			break;
 		}
-		std::cout << Longest_Path(BTree1) << std::endl;
+		 Longest_Path(BTree1) ;
 	}
 
 	return 0;
