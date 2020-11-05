@@ -47,6 +47,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman++ From LiaoBro", "H
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman_Tree with Q", "Huffman_Tree with Q\Huffman_Tree with Q.vcxproj", "{AA8DF6E2-43CE-4568-8794-45397D1340E8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman_code with Q", "Huffman_code with Q\Huffman_code with Q.vcxproj", "{1D683E7B-9995-44C8-AAFF-50B5872D0012}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman_code with STL Q", "Huffman_code with STL Q\Huffman_code with STL Q.vcxproj", "{14C2209C-D30A-49EC-8F10-5D31663E24C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -231,6 +235,22 @@ Global
 		{AA8DF6E2-43CE-4568-8794-45397D1340E8}.Release|x64.Build.0 = Release|x64
 		{AA8DF6E2-43CE-4568-8794-45397D1340E8}.Release|x86.ActiveCfg = Release|Win32
 		{AA8DF6E2-43CE-4568-8794-45397D1340E8}.Release|x86.Build.0 = Release|Win32
+		{1D683E7B-9995-44C8-AAFF-50B5872D0012}.Debug|x64.ActiveCfg = Debug|x64
+		{1D683E7B-9995-44C8-AAFF-50B5872D0012}.Debug|x64.Build.0 = Debug|x64
+		{1D683E7B-9995-44C8-AAFF-50B5872D0012}.Debug|x86.ActiveCfg = Debug|Win32
+		{1D683E7B-9995-44C8-AAFF-50B5872D0012}.Debug|x86.Build.0 = Debug|Win32
+		{1D683E7B-9995-44C8-AAFF-50B5872D0012}.Release|x64.ActiveCfg = Release|x64
+		{1D683E7B-9995-44C8-AAFF-50B5872D0012}.Release|x64.Build.0 = Release|x64
+		{1D683E7B-9995-44C8-AAFF-50B5872D0012}.Release|x86.ActiveCfg = Release|Win32
+		{1D683E7B-9995-44C8-AAFF-50B5872D0012}.Release|x86.Build.0 = Release|Win32
+		{14C2209C-D30A-49EC-8F10-5D31663E24C9}.Debug|x64.ActiveCfg = Debug|x64
+		{14C2209C-D30A-49EC-8F10-5D31663E24C9}.Debug|x64.Build.0 = Debug|x64
+		{14C2209C-D30A-49EC-8F10-5D31663E24C9}.Debug|x86.ActiveCfg = Debug|Win32
+		{14C2209C-D30A-49EC-8F10-5D31663E24C9}.Debug|x86.Build.0 = Debug|Win32
+		{14C2209C-D30A-49EC-8F10-5D31663E24C9}.Release|x64.ActiveCfg = Release|x64
+		{14C2209C-D30A-49EC-8F10-5D31663E24C9}.Release|x64.Build.0 = Release|x64
+		{14C2209C-D30A-49EC-8F10-5D31663E24C9}.Release|x86.ActiveCfg = Release|Win32
+		{14C2209C-D30A-49EC-8F10-5D31663E24C9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
