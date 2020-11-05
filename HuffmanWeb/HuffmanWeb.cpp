@@ -1,7 +1,9 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS //put in first line
+//数据结构C 实现方法
 #include<iostream>
 #include<cstring>
 #include<string>
+#include<limits.h>
 using namespace std;
 #define MAXSIZE 500
 int Frequency[26]; //频率 
@@ -20,7 +22,7 @@ typedef char **huffman_code;
 
 void select(huffman_tree &hf, int num, int &s1, int &s2)//在叶子结点里找最小的两个 
 {
-	int min = 999, cmin = 999;//最小值和次小值 
+	int min = INT_MAX, cmin = INT_MAX;//最小值和次小值 
 	int i = 1;
 	while (i <= num)
 	{
@@ -106,7 +108,7 @@ void count(char str[], huffman_tree &hf, int &n)//出现频率 ,字母个数
 
 	while (str[i] != '\0')
 	{
-		j = str[i] - 97;
+		j = str[i] - 97;// a->97
 		num[j]++;
 		i++;
 	}
@@ -115,12 +117,12 @@ void count(char str[], huffman_tree &hf, int &n)//出现频率 ,字母个数
 	{
 		if (num[i] != 0)
 		{
-			letterTank[j] = char(i + 97);
+			letterTank[j] = char(i + 97);//存字母
 			Frequency[j] = num[i];
 			j++;
 		}
 	}
-	n = j;
+	n = j;//4
 	for (int i = 0; i < n; i++)
 	{
 		if (i == n - 1)
@@ -143,7 +145,7 @@ void HuffmanCode(huffman_tree &hf, huffman_code &hc, int n)
 
 	for (int i = 1; i <= n; i++)
 	{
-		start = n - 1;
+		start = n - 1;//first : 3
 		c = i;
 		f = hf[i].parent;
 
@@ -159,7 +161,7 @@ void HuffmanCode(huffman_tree &hf, huffman_code &hc, int n)
 			c = f;//向上回溯 
 			f = hf[f].parent;
 		}
-		hc[i] = new char[n - start];
+		hc[i] = new char[n - start];//n-start代表元素
 		strcpy(hc[i], &cd[start]);//把临时空间的编码复制到编码表中 
 	}
 	delete cd;
@@ -202,7 +204,7 @@ void code_to_letter(huffman_tree &hf, huffman_code &hc, int n)
 			i = hf[i].lchild;   //左孩子
 		else if (temp[j] == '1')
 			i = hf[i].rchild;    //右孩子
-		if (hf[i].lchild == 0)
+		if (hf[i].lchild == 0)//等价于hf[i].lchild == 0&&hf[i].rchild == 0，相当于为叶子节点时候输出
 		{
 			cout << hf[i].data;
 			i = 2 * n - 1;

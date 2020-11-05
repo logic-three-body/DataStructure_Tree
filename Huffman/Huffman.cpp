@@ -1,4 +1,5 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS //put in first line
+//数据结构C 实现方法
 #include<iostream>
 #include<cstring>
 #include<string>
