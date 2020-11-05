@@ -63,7 +63,7 @@ public:
 	HuffmanTree() {}
 	void select(HTNode* node, int num, int& s1, int& s2) {
 		int minindex = 0;
-		s1 = -1;
+		s1 = -1;//标记变量
 		s2 = -1;
 		for (int i = 0; i < 2; i++) {
 			for (int k = 1; k <= num; k++) {//循环寻找最小下标
@@ -87,7 +87,7 @@ public:
 			minindex = 0;
 		}
 	}
-	void init(map<char, int> word_count) {
+	void init(map<char, int>& word_count) {
 		if (word_count.size() <= 1) {//map容器内无元素
 			return;
 		}
@@ -117,7 +117,7 @@ public:
 			cout << i << " " << node[i].getWeight() << " " << node[i].getParent() << " " << node[i].getLchild() << " " << node[i].getRchild() << endl;
 		}
 	}
-	void code(map<char, int> word_count, map<char, string>& huffmancode, int n) {
+	void code(map<char, int>& word_count, map<char, string>& huffmancode, int n) {
 		string code = "";
 		int parent = 0;
 		int child = 0;
@@ -156,11 +156,11 @@ private:
 	map<char, string> huffmancode;
 public:
 	Huffman() {}
-	Huffman(string s) {
+	Huffman(const string& s) {
 		this->words = s;
 	}
 
-	void set_words(string s) {
+	void set_words(const string& s) {
 		this->words = s;
 	}
 
