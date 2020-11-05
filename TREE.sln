@@ -43,6 +43,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExtTreeC++", "ExtTreeC++\Ex
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExTree3", "ExTree3\ExTree3.vcxproj", "{EFBB9018-080E-4799-843A-61D6E7AED77D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Huffman++ From LiaoBro", "Huffman++ From LiaoBro\Huffman++ From LiaoBro.vcxproj", "{597217FA-1695-4554-9C18-8980B08D9198}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -211,6 +213,14 @@ Global
 		{EFBB9018-080E-4799-843A-61D6E7AED77D}.Release|x64.Build.0 = Release|x64
 		{EFBB9018-080E-4799-843A-61D6E7AED77D}.Release|x86.ActiveCfg = Release|Win32
 		{EFBB9018-080E-4799-843A-61D6E7AED77D}.Release|x86.Build.0 = Release|Win32
+		{597217FA-1695-4554-9C18-8980B08D9198}.Debug|x64.ActiveCfg = Debug|x64
+		{597217FA-1695-4554-9C18-8980B08D9198}.Debug|x64.Build.0 = Debug|x64
+		{597217FA-1695-4554-9C18-8980B08D9198}.Debug|x86.ActiveCfg = Debug|Win32
+		{597217FA-1695-4554-9C18-8980B08D9198}.Debug|x86.Build.0 = Debug|Win32
+		{597217FA-1695-4554-9C18-8980B08D9198}.Release|x64.ActiveCfg = Release|x64
+		{597217FA-1695-4554-9C18-8980B08D9198}.Release|x64.Build.0 = Release|x64
+		{597217FA-1695-4554-9C18-8980B08D9198}.Release|x86.ActiveCfg = Release|Win32
+		{597217FA-1695-4554-9C18-8980B08D9198}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

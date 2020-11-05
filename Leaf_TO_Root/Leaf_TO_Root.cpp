@@ -348,9 +348,8 @@ void AllPath(const BiTree&T,int path_len,TElemType* path )//pathlen 初始值 0
 			++path_len; //路径长度增1
 			AllPath(T->lchild, path_len, path);//遍历左子树
 			AllPath(T->rchild, path_len, path);//遍历右子树
-			--path_len;					//恢复环境
+			--path_len;					//恢复环境 可去掉 递归返回原值
 		}
-
 	}
 }
 

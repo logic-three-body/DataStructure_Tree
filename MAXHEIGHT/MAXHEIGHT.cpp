@@ -1,5 +1,5 @@
 ﻿// CMP.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+//Another Longest_Path version:https://blog.csdn.net/weixin_43673589/article/details/104420909
 
 #include <iostream>
 #include<string>

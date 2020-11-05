@@ -1,5 +1,5 @@
 ﻿// CMP.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+//Another STL  method:https://blog.csdn.net/lsyiii1112/article/details/84590521
 
 #include <iostream>
 #include<string>
@@ -262,7 +262,7 @@ Status Max_Width(const BiTree&T)//method:LevelTranverse
 			//循环后rear-1总是最右节点
 			//front每次循环均增1，而rear不一定增加，依据是否有子树
 			//front>last 情况有 ： rear 多次未增加 >> p 无左/右/左右节点 >> 此时以达到一定上限 
-			if (front>last)//最右节点的比较
+			if (front>last)//最右节点的比较 //一层结束 （最右是相对的，不是一定为最右子树）
 			{
 				last = rear;//last point to next most right node
 				max_width = max_width > temp_width ? max_width : temp_width;//update
