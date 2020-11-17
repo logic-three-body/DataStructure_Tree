@@ -210,7 +210,6 @@ Status LevelTranverse(const BiTree&T)
 	{
 		return ERROR;
 	}
-	int max_width = 0, temp_width = 0;
 	std::queue<BiTree> Q;
 	if (T != nullptr)
 		Q.push(T);//根结点进入队列
@@ -218,7 +217,7 @@ Status LevelTranverse(const BiTree&T)
 	{
 		std::cout << Q.front()->data << " ";//遍历对头节点
 
-		///++temp_width;//宽度增加
+	
 
 		if (Q.front()->lchild != nullptr)//如果对头节点有左孩子，将左孩子入队
 			Q.push(Q.front()->lchild);
@@ -226,7 +225,7 @@ Status LevelTranverse(const BiTree&T)
 		if (Q.front()->rchild != nullptr)//如果对头节点有右孩子，将右孩子入队
 			Q.push(Q.front()->rchild);
 		Q.pop();//将已经遍历过的节点出队
-		///max_width = max_width > temp_width ? max_width : temp_width;//更新最大值		
+			
 	}
 	std::cout << std::endl;
 	return OK;
